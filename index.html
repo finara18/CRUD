@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CRUD · Panel de Usuarios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       HEADER
+  ═══════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-bracket">[</span>
+        CRUD<span class="logo-accent">_DB</span>
+        <span class="logo-bracket">]</span>
+      </div>
+      <div class="header-meta">
+        <span class="status-dot"></span>
+        <span class="status-text">Conectado · MySQL</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════
+       MAIN LAYOUT
+  ═══════════════════════════════════════ -->
+  <main class="layout">
+
+    <!-- ─── PANEL IZQUIERDO: FORMULARIO ─── -->
+    <section class="panel panel-form">
+      <div class="panel-header">
+        <h2 class="panel-title" id="form-title">Nuevo Usuario</h2>
+        <span class="panel-tag" id="form-mode-tag">CREATE</span>
+      </div>
+
+      <form id="crud-form" novalidate>
+        <!-- Campo oculto para ID en edición -->
+        <input type="hidden" id="field-id" name="id" />
+
+        <div class="form-group">
+          <label class="form-label" for="field-nombre">Nombre</label>
+          <input
+            class="form-input"
+            type="text"
+            id="field-nombre"
+            name="nombre"
+            placeholder="ej. Ana García"
+            autocomplete="off"
+            required
+          />
+          <span class="form-error" id="err-nombre"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field-email">Correo electrónico</label>
+          <input
+            class="form-input"
+            type="email"
+            id="field-email"
+            name="email"
+            placeholder="ej. ana@correo.com"
+            autocomplete="off"
+            required
+          />
+          <span class="form-error" id="err-email"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field-rol">Rol</label>
+          <select class="form-input form-select" id="field-rol" name="rol" required>
+            <option value="">— Selecciona un rol —</option>
+            <option value="admin">Administrador</option>
+            <option value="editor">Editor</option>
+            <option value="viewer">Visualizador</option>
+          </select>
+          <span class="form-error" id="err-rol"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field-activo">Estado</label>
+          <div class="toggle-wrap">
+            <input type="checkbox" id="field-activo" name="activo" class="toggle-input" />
+            <label for="field-activo" class="toggle-label">
+              <span class="toggle-track">
+                <span class="toggle-thumb"></span>
+              </span>
+              <span class="toggle-text" id="toggle-text-display">Inactivo</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="btn-submit">
+            <span class="btn-icon">＋</span>
+            <span id="btn-submit-text">Crear usuario</span>
+          </button>
+          <button type="button" class="btn btn-ghost" id="btn-cancel" style="display:none;">
+            Cancelar
+          </button>
+        </div>
+      </form>
+
+      <!-- Notificación inline -->
+      <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+    </section>
+
+    <!-- ─── PANEL DERECHO: TABLA / LISTA ─── -->
+    <section class="panel panel-table">
+      <div class="panel-header">
+        <h2 class="panel-title">Usuarios registrados</h2>
+        <div class="table-controls">
+          <input
+            class="search-input"
+            type="search"
+            id="search-input"
+            placeholder="Buscar…"
+            aria-label="Buscar usuarios"
+          />
+          <span class="count-badge" id="count-badge">0 registros</span>
+        </div>
+      </div>
+
+      <!-- Estado de carga -->
+      <div class="loader-wrap" id="loader">
+        <div class="loader-spinner"></div>
+        <span>Cargando datos…</span>
+      </div>
+
+      <!-- Estado vacío -->
+      <div class="empty-state" id="empty-state" style="display:none;">
+        <div class="empty-icon">◈</div>
+        <p>No hay usuarios aún.<br/>Crea el primero desde el formulario.</p>
+      </div>
+
+      <!-- Tabla de datos -->
+      <div class="table-wrap" id="table-wrap" style="display:none;">
+        <table class="data-table" id="data-table">
+          <thead>
+            <tr>
+              <th data-col="id">ID</th>
+              <th data-col="nombre">Nombre</th>
+              <th data-col="email">Correo</th>
+              <th data-col="rol">Rol</th>
+              <th data-col="activo">Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- Filas generadas por JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Paginación -->
+      <nav class="pagination" id="pagination" aria-label="Paginación" style="display:none;">
+        <button class="page-btn" id="page-prev" aria-label="Anterior">&#8592;</button>
+        <span class="page-info" id="page-info">Pág. 1 / 1</span>
+        <button class="page-btn" id="page-next" aria-label="Siguiente">&#8594;</button>
+      </nav>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════
+       MODAL DE CONFIRMACIÓN (DELETE)
+  ═══════════════════════════════════════ -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" style="display:none;">
+    <div class="modal">
+      <div class="modal-icon">⚠</div>
+      <h3 class="modal-title" id="modal-title">Confirmar eliminación</h3>
+      <p class="modal-body" id="modal-body">
+        ¿Seguro que deseas eliminar a <strong id="modal-user-name"></strong>?<br/>
+        Esta acción no se puede deshacer.
+      </p>
+      <div class="modal-actions">
+        <button class="btn btn-danger" id="btn-confirm-delete">Eliminar</button>
+        <button class="btn btn-ghost" id="btn-cancel-delete">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SCRIPTS
+  ═══════════════════════════════════════ -->
+  <script src="app.js"></script>
+</body>
+</html>
