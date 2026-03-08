@@ -14,8 +14,7 @@
 }
 .navbar_title{
     display: flex;
-    font-size: 14px;
-    gap: 20px;
+    font-size: 10px;
     height: 0px;
 }
 
