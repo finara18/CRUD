@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="singup.css">
+</head>
+
+<body>
+    <!--Card-Form-->
+    <div class="card_form">
+        <h1 class="title_form">Nuevo administrador</h1>
+        <h3 class="text_information">Cree su cuenta de gestión para comenzar a administrar
+            proyectos y equipos.</h3>
+
+        <h3 class="text_name">Nombre</h3>
+        <input type="text" id="name" placeholder="Nombre completo" class="input_name">
+
+        <h3 class="text_rol">Rol</h3>
+        <select>
+            <option value="">Selecciona un rol</option>
+            <option value="admin">Administrador</option>
+            <option value="user">Usuario</option>
+            <option value="editor">Editor</option>
+        </select>
+
+        <h3 class="text_email">Correo electrónico</h3>
+        <input type="email" id="regEmail" placeholder="Correo electrónico" class="input_email">
+
+        <h3 class="text_password">Contraseña</h3>
+        <input type="password" id="regPass" placeholder="Contraseña" class="input_password">
+
+        <h3 class="text_confirm">Confirmar contraseña</h3>
+        <input type="password" id="confirmPassword" placeholder="Confirmar contraseña" class="input_confirm">
+
+        
+        <br><input type="checkbox" id="terms" class="input_termins">Acepto los <span class="green"> Terminos y Condiciones </span> y la <span class="green">Politica de <br>privacidad </span> de Finara
+       
+        <button onclick="registrar()" class="button_signUp">Crear cuenta de administrador</button>
+        
+        <div class="div_question">
+        <h2 class="question1">¿Ya tienes cuenta de administrador?</h2>
+        <a href="index.html" class="singIn">Iniciar sesion</a>
+        </div>
+
+
+        <script type="module" src="app.js"></script>
+        
+
+    </div>
+
+</body>
+
+</html>

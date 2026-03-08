@@ -1,0 +1,31 @@
+.dashboard_container{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    
+}
+.navbar{
+    width: 234px;
+    gap: 50px;
+    background-color: #ffffff;
+    margin-left: 10px;
+    padding: 10px;
+    height: 100vh;
+}
+.navbar_title{
+    display: flex;
+    font-size: 14px;
+    gap: 20px;
+    height: 0px;
+}
+
+.content_dashboard{
+    width: 100%;
+    background-color: #F6F8F7;
+    padding: 20px;
+}
+.logo{
+    width: 50px;
+    height: 45px;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+}

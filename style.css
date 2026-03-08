@@ -1,0 +1,131 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #F6F8F7;
+}
+
+.login_card{
+    width: 480px;
+    height: 590px;
+    margin-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+}
+.title-login{
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    font-family: 'Inter', sans-serif;
+    color: #0F172A;
+}
+.welcome-text{
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+    color: #64748B;
+}
+.email-text{
+    text-align: left;
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 34px;
+    margin-top: 50px;
+    color: #334155;
+}
+.input_email{
+    margin-left: 0px;
+    width: 410px;
+    height: 40px;
+}
+.div-password{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.password-text{
+    text-align: left;
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 34px;
+    margin-top: 0px;
+    color: #334155;
+}
+.forgot-password{
+    text-align: right;
+    font-size: 12px;
+    font-weight: normal;
+    margin-right: 34px;
+    color: #11D493;
+}
+.input_password{
+    margin-left: 0px;
+    width: 410px;
+    height: 40px;
+}
+.input-password{
+    position: relative;
+    width: 100%;
+}
+
+.input-password input{
+    width: 410px;
+    height: 40px;
+    padding: 10px 40px 10px 10px; 
+    font-size: 16px;
+}
+
+.input-password i{
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.label_remeber{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 34px;
+    gap: 5px;
+}
+.input_remember{
+    align-items: left;
+    color: #475569;
+    font-size: 14px;
+}
+.button_signIn{
+    width: 410px;
+    height: 40px;
+    background-color: #11D493;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.question1{
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 20px;
+    font-family: 'Inter', sans-serif;
+    color: #64748B;
+}
+.singup-link{
+    color: #11D493;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 0px;
+    font-family: 'Inter', sans-serif;
+}
+.logo{
+    margin-top: 64px;
+}

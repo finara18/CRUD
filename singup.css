@@ -1,0 +1,124 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #F6F8F7;
+
+}
+.card_form{
+    width: 480px;
+    height: 690px;
+    margin-top: 70px;
+    background-color: rgb(255, 255, 255);
+    text-align: left;
+    border-radius: 20px;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+    padding: 20px;
+}
+.title_form{
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    font-family: 'Inter', sans-serif;
+    color: #0F172A;
+}
+.text_information{
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+    color: #64748B;
+}
+.text_name{
+    text-align: left;
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 50px;
+    color: #334155;
+}
+.input_name{
+    margin-left: 0px;
+    width: 410px;
+    height: 30px;
+}
+.text_rol{
+    text-align: left;
+    font-size: 14px;
+    font-weight: normal;
+    color: #334155;
+}
+.text_email{
+    text-align: left;
+    font-size: 14px;
+    font-weight: normal;
+    color: #334155;
+}
+.input_email{
+    margin-left: 0px;
+    width: 410px;
+    height: 30px;
+}
+.text_password{
+    text-align: left;
+    font-size: 14px;
+    font-weight: normal;
+    color: #334155;
+}
+.input_password{
+    margin-left: 0px;
+    width: 410px;
+    height: 30px;
+}
+.text_confirm{
+    text-align: left;
+    font-size: 14px;
+    font-weight: normal;
+    color: #334155;
+
+}
+.input_confirm{
+    margin-left: 0px;
+    width: 410px;
+    height: 30px;
+}
+.input_termins{
+    margin-top:20px;
+}
+.button_signUp{
+    width: 410px;
+    height: 40px;
+    background-color: #11D493;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.div_question{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.green{
+    color:#11D493;
+}
+.question1{
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 20px;
+    font-family: 'Inter', sans-serif;
+    color: #64748B;
+}
+.singIn{
+    color: #11D493;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+
+}
