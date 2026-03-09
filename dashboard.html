@@ -12,99 +12,120 @@
 </head>
 
 <body>
-    <div class="dashboard_container">
-        <div class="navbar">
-            <div class="navbar_title">
-                <img src="logo.png" alt="logo" class="logo">
-                <h1 class="title-navbar">Finara</h1>
-            </div>
-            <h2><i class="bi bi-people-fill"></i>Usuarios</h2>
-            <h2><i class="bi bi-people-fill"></i>Admins</h2>
-            <h2><i class="bi bi-people-fill"></i>Reportes</h2>
-            <h2><i class="bi bi-people-fill"></i>Configuraciones</h2>
-
-            <div>
-                <h1>Kevin</h1>
-                <h2>admin</h2>
-                <h2>cerrar sesion</h2>
-            </div>
+    <!--Navbar-->
+    <div class="col-2 bg-ligth text-white vh-100 navbar">
+        <div class="navbar_title d-flex align-items-center gap-2 p-3">
+            <img src="logo.png" alt="logo" class="logo" width="40">
+            <h5 class="title_text">Finara</h5>
         </div>
 
-        <div class="content_dashboard">
-            <h2>Gestion de usuarios</h2>
-            <h2>Administra tus usuarios</h2>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Agregar usuario
-            </button>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <input type="text" id="nombre" placeholder="Nombre">
-                            <input type="text" id="edad" placeholder="Edad">
+        <ul class="nav flex-column">
 
-                            <button onclick="guardar()">Guardar</button>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="guardar()">Save changes</button>
+            <li class="nav-item">
+                <button class="btn btn-ligth w-100 btnDashboard" onclick="showSection('home')">Dashboard</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-ligth w-100 btnUser" onclick="showSection('users')">Usuarios</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-ligth w-100 btnProjects" onclick="showSection('projects')">Proyectos</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-ligth w-100 btnSettings" onclick="showSection('settings')">Configuración</button>
+            </li>
+        </ul>
+
+        <div class="profile">
+            <div class="profile_info">
+                <p class="profile_name">Nombre</p>
+                <p class="profile_role">Rol</p>
+            </div>
+
+            <a href="index.html" class="log_out">Cerrar sesión</a>
+        </div>
+    </div>
+
+
+    <div class="col-10 p-4">
+
+        <div id="home" class="section active">
+            <h2>Inicio</h2>
+            <p>Bienvenido al dashboard</p>
+        </div>
+
+
+        <div id="users" class="section">
+            <div class="content_dashboard">
+                <h2>Gestión de usuarios</h2>
+                <p>Administra tus usuarios</p>
+
+                <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalUsuario">
+                    Agregar usuario
+                </button>
+
+                <div class="modal fade" id="modalUsuario" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Nuevo usuario</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <div class="modal-body">
+                                <input class="form-control mb-2" type="text" id="nombreUsuario" placeholder="Nombre">
+                                <input class="form-control mb-2" type="text" id="edadUsuario" placeholder="Edad">
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary" onclick="guardar()">Guardar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <h3>Datos</h3>
+                <ul id="lista"></ul>
             </div>
-
-            <div>
-                <input type="text" id="nombre" placeholder="Buscar por nombre">
-            </div>
-
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>NOMBRE / AVATAR</th>
-                            <th>ROL</th>
-                            <th>NIVEL</th>
-                            <th>PROYECTOS</th>
-                            <th>ESTADO</th>
-                            <th>ACCIONES</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="user-info">
-                                    <img src="https://via.placeholder.com/40" alt="Avatar" class="avatar">
-                                    <div>
-                                        <div class="name">Juan Martínez</div>
-                                        <div class="email">juan.mtz@renov.com</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="role">Albañil Principal</span></td>
-                            <td><span class="badge-level">N3</span></td>
-                            <td><span class="projects-count">12</span></td>
-                            <td><span class="status active">ACTIVO</span></td>
-                            <td class="actions">
-                                <button class="btn-icon">✏️</button>
-                                <button class="btn-icon">👁️</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-
-
-            <h3>Datos</h3>
-            <ul id="lista"></ul>
         </div>
+
+
+        <div id="settings" class="section">
+            <h2>Configuración</h2>
+            <p>Ajustes del sistema</p>
+        </div>
+
     </div>
+
+
+
+    <script>
+        function showSection(sectionId) {
+
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+        }
+
+        window.showSection = showSection;
+    </script>
+
+
+
+
+
+
+
+
+
+
+
 
     <script type="module" src="crud.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

@@ -2,24 +2,23 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh; /* Cambiado a min-height para que en móviles no se corte el contenido */
+    min-height: 100vh;
     margin: 0;
     background-color: #F6F8F7;
-    padding: 20px; /* Espacio de seguridad para los bordes del celular */
+    padding: 20px; 
 }
 
 .card_form {
-    width: 100%; /* Ocupa todo el ancho disponible... */
-    max-width: 480px; /* ...pero nunca más de 480px */
-    height: auto; /* Permite que la altura se ajuste al contenido en pantallas pequeñas */
+    width: 100%; 
+    max-width: 480px;
+    height: auto; 
     min-height: 690px;
     background-color: rgb(255, 255, 255);
     text-align: left;
     border-radius: 20px;
     box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
-    padding: 30px; /* Un poco más de aire interno */
-    box-sizing: border-box; /* Fundamental para que el padding no rompa el ancho */
-}
+    padding: 30px; 
+    box-sizing: border-box; }
 
 .title_form {
     font-size: 24px;
@@ -37,30 +36,27 @@ body {
     color: #64748B;
 }
 
-/* Agrupamos estilos de texto para limpieza */
 .text_name, .text_rol, .text_email, .text_password, .text_confirm {
     text-align: left;
     font-size: 14px;
     font-weight: normal;
-    margin-top: 20px; /* Espaciado uniforme */
+    margin-top: 20px; 
     color: #334155;
 }
 
 .text_name {
-    margin-top: 40px; /* El primero mantiene un poco más de espacio */
+    margin-top: 40px; 
 }
-
-/* AJUSTE RESPONSIVE PARA INPUTS Y BOTÓN */
 .input_name, 
 .input_email, 
 .input_password, 
 .input_confirm, 
 .button_signUp {
-    width: 100%; /* Se adaptan al ancho de la card */
+    width: 100%; 
     max-width: 100%; 
-    height: 40px; /* Un poco más de altura para mejor usabilidad táctil */
+    height: 40px;
     margin-left: 0;
-    box-sizing: border-box; /* Evita que los inputs se salgan de la card */
+    box-sizing: border-box; 
 }
 
 .input_termins {
@@ -79,7 +75,7 @@ body {
 
 .div_question {
     display: flex;
-    flex-wrap: wrap; /* Permite que el texto baje si no cabe en una línea */
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 5px;
