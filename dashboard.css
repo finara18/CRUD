@@ -1,119 +1,119 @@
-.navbar{
-    display: flex;
-    flex-direction: column;
-    align-items: right;
+/* --- ESTILOS BASE (PC) --- */
 
-}
-.title_text{
-    font-size:20px;
-    font-weight: bold;
-    color: black;
-}
-.logo{
-    width: 50px;
-    height: 45px;
-    box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
-}
-.btnDashboard, .btnUser, .btnProjects, .btnSettings{
-    text-align: left;
-    font-size: 14px;
-    font-weight: normal;
-    margin-top: 20px; 
-    color: #334155;
-}
-.profile{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-    padding:15px;
-    background:#e7e7e7;
-    border-radius:8px;
-}
-
-.profile_info{
-    display:flex;
-    flex-direction:column;
-}
-
-.profile_name{
-    font-size:14px;
-    margin:0;
-    color:#334155;
-    font-weight:600;
-}
-
-.profile_role{
-    font-size:13px;
-    margin:0;
-    color:#64748b;
-}
-
-.log_out{
-    text-decoration:none;
-    font-size:13px;
-    color:#dc2626;
-    margin-top:5px;
-}
-
-.log_out:hover{
-    text-decoration:underline;
-}
-/* Escondemos todas las secciones por defecto */
-.section {
-    display: none;
-}
-
-/* Solo mostramos la que tenga la clase 'active' */
-.section.active {
-    display: block;
-}
-
-/* Estilo para que la navbar y el contenido se vean en columnas */
 body {
     display: flex;
-    overflow-x: hidden;
+    flex-direction: row; /* Menú al lado del contenido */
+    margin: 0;
+    background-color: #F6F8F7;
+    min-height: 100vh;
 }
 
 .navbar {
+    width: 250px;
     min-width: 250px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
     background-color: #ffffff !important;
     border-right: 1px solid #dee2e6;
-    color: #333 !important;
+    padding: 15px;
+    transition: all 0.3s ease;
 }
 
-/* Para que los botones se vean como los de tu imagen de referencia */
+/* El contenedor del contenido (col-10 en tu HTML) */
+.col-10 {
+    flex-grow: 1;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Estilos de botones y perfil que ya tenías */
 .btn-ligth {
     text-align: left;
     padding: 12px 20px;
     border: none;
     color: #64748B;
     background: transparent;
+    width: 100%;
+    margin-top: 5px;
 }
 
 .btn-ligth:hover {
     background-color: #F1F5F9;
     color: #11D493;
 }
-.avatar-circle {
-    width: 32px;
-    height: 32px;
-    background-color: #11D493; /* Tu color verde */
-    color: white;
-    border-radius: 50%;
+
+.profile {
+    margin-top: auto; /* Empuja el perfil al fondo */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 0.8rem;
-    text-transform: uppercase;
+    flex-direction: column;
+    gap: 8px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
 }
 
-/* Efecto hover en la fila */
-#lista-tabla tr:hover {
-    background-color: #f8fafc;
+/* --- RESPONSIVE (CELULARES) --- */
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column; /* Apila navbar arriba y contenido abajo */
+    }
+
+    .navbar {
+        width: 100%;
+        min-width: 100%;
+        height: auto; /* Ya no ocupa toda la pantalla de alto */
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid #dee2e6;
+        padding: 10px;
+    }
+
+    /* Los botones se ponen uno al lado del otro con scroll si no caben */
+    .nav {
+        flex-direction: row !important;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 10px;
+    }
+
+    .nav-item {
+        flex: 0 0 auto;
+    }
+
+    .btn-ligth {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+
+    .col-10 {
+        padding: 15px;
+    }
+
+    .profile {
+        margin-top: 15px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* En celular, la tabla debe poder desplazarse lateralmente */
+    .table-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
 }
 
-/* Bordes suaves para la tabla */
-.table-responsive {
-    overflow: hidden; /* Mantiene las esquinas redondeadas */
-}
+/* --- TUS OTROS ESTILOS --- */
+
+.section { display: none; }
+.section.active { display: block; }
+
+.title_text { font-size: 20px; font-weight: bold; color: black; }
+.logo { width: 50px; height: 45px; box-shadow: 0px 10px 25px rgba(0,0,0,0.15); }
+
