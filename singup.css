@@ -1,124 +1,107 @@
-body{
+body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh; /* Cambiado a min-height para que en móviles no se corte el contenido */
     margin: 0;
     background-color: #F6F8F7;
-
+    padding: 20px; /* Espacio de seguridad para los bordes del celular */
 }
-.card_form{
-    width: 480px;
-    height: 690px;
-    margin-top: 70px;
+
+.card_form {
+    width: 100%; /* Ocupa todo el ancho disponible... */
+    max-width: 480px; /* ...pero nunca más de 480px */
+    height: auto; /* Permite que la altura se ajuste al contenido en pantallas pequeñas */
+    min-height: 690px;
     background-color: rgb(255, 255, 255);
     text-align: left;
     border-radius: 20px;
     box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
-    padding: 20px;
+    padding: 30px; /* Un poco más de aire interno */
+    box-sizing: border-box; /* Fundamental para que el padding no rompa el ancho */
 }
-.title_form{
+
+.title_form {
     font-size: 24px;
     font-weight: bold;
-    margin-top: 20px;
+    margin-top: 10px;
     font-family: 'Inter', sans-serif;
     color: #0F172A;
 }
-.text_information{
+
+.text_information {
     font-size: 16px;
     font-weight: normal;
     margin-top: 10px;
     font-family: 'Inter', sans-serif;
     color: #64748B;
 }
-.text_name{
-    text-align: left;
-    font-size: 14px;
-    font-weight: normal;
-    margin-top: 50px;
-    color: #334155;
-}
-.input_name{
-    margin-left: 0px;
-    width: 410px;
-    height: 30px;
-}
-.text_rol{
-    text-align: left;
-    font-size: 14px;
-    font-weight: normal;
-    color: #334155;
-}
-.text_email{
-    text-align: left;
-    font-size: 14px;
-    font-weight: normal;
-    color: #334155;
-}
-.input_email{
-    margin-left: 0px;
-    width: 410px;
-    height: 30px;
-}
-.text_password{
-    text-align: left;
-    font-size: 14px;
-    font-weight: normal;
-    color: #334155;
-}
-.input_password{
-    margin-left: 0px;
-    width: 410px;
-    height: 30px;
-}
-.text_confirm{
-    text-align: left;
-    font-size: 14px;
-    font-weight: normal;
-    color: #334155;
 
+/* Agrupamos estilos de texto para limpieza */
+.text_name, .text_rol, .text_email, .text_password, .text_confirm {
+    text-align: left;
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 20px; /* Espaciado uniforme */
+    color: #334155;
 }
-.input_confirm{
-    margin-left: 0px;
-    width: 410px;
-    height: 30px;
+
+.text_name {
+    margin-top: 40px; /* El primero mantiene un poco más de espacio */
 }
-.input_termins{
-    margin-top:20px;
+
+/* AJUSTE RESPONSIVE PARA INPUTS Y BOTÓN */
+.input_name, 
+.input_email, 
+.input_password, 
+.input_confirm, 
+.button_signUp {
+    width: 100%; /* Se adaptan al ancho de la card */
+    max-width: 100%; 
+    height: 40px; /* Un poco más de altura para mejor usabilidad táctil */
+    margin-left: 0;
+    box-sizing: border-box; /* Evita que los inputs se salgan de la card */
 }
-.button_signUp{
-    width: 410px;
-    height: 40px;
+
+.input_termins {
+    margin-top: 20px;
+}
+
+.button_signUp {
     background-color: #11D493;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 30px;
 }
-.div_question{
+
+.div_question {
     display: flex;
+    flex-wrap: wrap; /* Permite que el texto baje si no cabe en una línea */
     align-items: center;
     justify-content: center;
     gap: 5px;
+    margin-top: 10px;
 }
-.green{
-    color:#11D493;
+
+.green {
+    color: #11D493;
 }
-.question1{
+
+.question1 {
     font-size: 14px;
     font-weight: normal;
     margin-top: 20px;
     font-family: 'Inter', sans-serif;
     color: #64748B;
 }
-.singIn{
+
+.singIn {
     color: #11D493;
     text-decoration: none;
     font-size: 14px;
     font-weight: normal;
-    margin-top: 10px;
     font-family: 'Inter', sans-serif;
-
 }
